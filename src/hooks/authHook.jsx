@@ -3,6 +3,7 @@ import {useNavigate} from "react-router";
 import {useForm} from "react-hook-form";
 import { useDispatch } from 'react-redux';
 import { toast } from "react-toastify";
+import {addUser,removeUser} from "../features/authSlice";
 
 export const useAuth = () => {
    let navigate = useNavigate();
@@ -36,7 +37,11 @@ export const useAuth = () => {
    
          console.log("Login Successfully",existingUser);
          toast.success("Login Successfull")
+  
          setLoggedInUsers(existingUser);
+
+         dispatch(addUser(existingUser));
+         localStorage.setItem("loggedInUser",JSON.stringify(existingUser));
          navigate("/main");
          reset();
    }
