@@ -1,6 +1,6 @@
 
 import React from "react";
-import { useAuth } from "../src/hooks/authHook";
+import { useAuth } from "../hooks/authHook";
 
 const Register = () => {
   const {

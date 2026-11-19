@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import AuthLayout from "../layout/AuthLayout.jsx";
 import MainLayout from '../layout/MainLayout.jsx';
-import Login from '../pages/Login.jsx';
-import Register from '../pages/Register.jsx';
-import Home from '../pages/Home';
+import Login from '../src/pages/Login.jsx';
+import Register from '../src/pages/Register.jsx';
+import Home from '../src/pages/Home.jsx';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { addUser,removeUser } from '../src/features/authSlice.jsx';
