@@ -8,6 +8,8 @@ import Home from '../src/pages/Home.jsx';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { addUser,removeUser } from '../src/features/authSlice.jsx';
+import Shop from '../src/pages/Shop.jsx';
+import About from '../src/pages/About.jsx';
 
 const AppRoutes = () => {
   let dispatch = useDispatch();
@@ -51,6 +53,14 @@ const AppRoutes = () => {
           {
             path:"",
             element:<Home/>
+          },
+          {
+            path:"shop",
+            element:<Shop/>,
+          },
+          {
+            path:"about",
+            element:<About/>
           }
        ]
      } 
