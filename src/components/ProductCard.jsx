@@ -7,7 +7,7 @@ const ProductCard = ({ product }) => {
     (product.price * product.discountPercentage) / 100;
 
   return (
-    <div className="bg-white rounded-xl shadow-md overflow-hidden border hover:shadow-lg transition">
+    <div className="bg-white rounded-xl shadow-md overflow-hidden border hover:shadow-lg transition w-[350px] ">
 
       {/* Product Image */}
       <div className="relative bg-gray-50 p-4">

@@ -1,36 +1,25 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios';
 import ProductCard from '../components/ProductCard';
+import { useProduct } from '../hooks/productHook.jsx';
 
 const Shop = () => {
-  const [productsData, setProductsData] = useState([]);
-  const [isLoading,setIsLoading]  = useState(false);
 
-  let getProductData = async() => {
-     try{
-       setIsLoading(true);
-       let res = await axios.get("https://dummyjson.com/products");
-       console.log(res.data.products);
-       setProductsData(res.data.products);
-     }catch(error){
-       console.log("Error in fetching Data",error);
-     }finally{
-       setIsLoading(false);
-     }
-  }
- 
+   const {isPending, data, error} = useProduct();
 
-  useEffect(() => {
-    getProductData();
-  },[])
-
+   if(error) return <h1>{error}</h1>
   return (
-    <div className="flex flex-wrap ">
-       {productsData.map((product) => {
+    <div className="flex flex-wrap gap-10 py-20 px-20">
+       {isPending
+        ?
+        Array.from({length:8}).map((_,index) => {
+           <ProductCard key={index}/>
+        })
+        :
+        data.map((product) => {
           return <ProductCard key={product.id} product={product}/>
-       })}
+       })
+       }
     </div>
   )
 }
 
-export default Shop
+export default Shop;
